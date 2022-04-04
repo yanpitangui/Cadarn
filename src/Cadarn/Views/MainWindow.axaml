@@ -1,0 +1,23 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:implementations="clr-namespace:Cadarn.ViewModels.Implementations;assembly=Cadarn.ViewModels"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:main="clr-namespace:Cadarn.Views.Main"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Cadarn.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Cadarn">
+
+    <Design.DataContext>
+        <implementations:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <Grid RowDefinitions="35,Auto,*,Auto">
+        <Grid Classes="topPanelGrid" ColumnDefinitions="Auto,Auto,*,Auto">
+            <main:MenuView DataContext="{Binding MenuViewModel}" />
+        </Grid>
+        <Grid x:Name="OverlayGrid" Grid.Row="0" Grid.RowSpan="4" />
+    </Grid>
+
+</Window>

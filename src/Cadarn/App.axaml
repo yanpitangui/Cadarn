@@ -1,0 +1,25 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:Cadarn"
+             xmlns:views="clr-namespace:Cadarn.Views"
+             xmlns:implementations="clr-namespace:Cadarn.ViewModels.Implementations;assembly=Cadarn.ViewModels"
+             xmlns:p="clr-namespace:Cadarn.Properties"
+             x:Class="Cadarn.App">
+    <Application.DataTemplates>
+        <views:ViewLocator/>
+    </Application.DataTemplates>
+    <Design.DataContext>
+        <implementations:MainWindowViewModel />
+    </Design.DataContext>
+    
+    <NativeMenu.Menu>
+        <NativeMenu>
+            <NativeMenuItem Header="{x:Static p:Resources.AboutCadarnTitle}" Command="{Binding MenuViewModel.AboutCommand}" />
+        </NativeMenu>
+    </NativeMenu.Menu>
+
+    <Application.Styles>
+        <FluentTheme Mode="Dark"/>
+        <StyleInclude Source="/Styles/MainWindow.axaml" />
+    </Application.Styles>
+</Application>
